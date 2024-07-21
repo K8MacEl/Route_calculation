@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 from pathlib import Path
 
+#Checking to see if a CSV file already exits, if this is the first time running the program it will go to else
 my_file = Path("hist.csv")
 if my_file.is_file():
     hist_df = pd.read_csv('hist.csv')
@@ -26,9 +27,6 @@ url = "https://maps.googleapis.com/maps/api/distancematrix/json?"
 # GET response
 r = requests.get(url + "origins=" + start + "&destinations=" + end + "&key=" + api_key[10:-1])
 
-##define row to add
-#row_to_append = pd.DataFrame([{'start':'Mavericks', 'end':'31',travel_time:'}])
-
 # Check if the request was successful
 if r.status_code == 200:
     response_data = r.json()
@@ -40,6 +38,7 @@ if r.status_code == 200:
             # Return time as text and as seconds
             time = response_data["rows"][0]["elements"][0]["duration"]["text"]
             seconds = response_data["rows"][0]["elements"][0]["duration"]["value"]
+            #Adding most recent calculation to the history in the dataframe
             row_to_append = pd.DataFrame([{'start':start, 'end':end,'travel_time':time}])
             hist_df = pd.concat([hist_df, row_to_append])
             print("\nThe total travel time from the starting point to the end point is", time)
@@ -50,5 +49,6 @@ if r.status_code == 200:
 else:
     print("Error:", r.status_code, r.text)
 
+#Printing history and saving the new history to a CSV file
 print(hist_df)
 hist_df.to_csv('hist.csv',index=False)

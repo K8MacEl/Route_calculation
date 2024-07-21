@@ -1,14 +1,14 @@
 # Route Calculation
-This Python application utilizes Google's Distance Matrix API to calculate the time traveled between two destinations. Then using the Pandas library it stores the information into a CSV file.
+This Python application utilizes Google's Distance Matrix API to calculate the time traveled between two destinations. Then using the Pandas library it stores the information into a CSV file. 
 
 
 ## Getting Started:
-
+ Watch a the short <a href="https://www.loom.com/share/cba1ab180cb0439a895f57279d752284?sid=8b13108c-d73b-4714-b61b-c37e968601df">Loom here </a>
 
 - Ensure you have Python3 and Pandas on your environment
-- Clone the GitHub Repo at https://github.com/K8MacEl/Route_calculation.git
+- Clone the <a href="https://github.com/K8MacEl/Route_calculation.git"> Github Repo </a>
 - Create a new file titled ".env" for your local environment to securely store your Google API key. This will protect your Google API key if you push your code to an online repo such as GitHub.
-- Obtain a Google Distance Matrix API by following the documentation: https://developers.google.com/maps/documentation/distance-matrix/overview
+- Obtain a Google Distance Matrix API by following the <a href="https://developers.google.com/maps/documentation/distance-matrix/overview"> documenation </a>
 - Save you Google Distance Matrix API key in the .env file as follows: api_key: 'YOUR API KEY HERE'
 - Run your code, you should receive a prompt in your terminal to enter a starting address, then an end address, and then it should provide you a total travel time and a new hist.csv file will be created with the date
 - Each time you run the code and enter start and ends a new row will be added a new csv with the past history as well
